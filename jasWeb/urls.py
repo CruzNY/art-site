@@ -20,5 +20,7 @@ from django.conf.urls.static import static
 import gallery.views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',gallery.views.home, name='home')
+    path('',gallery.views.home, name='home'),
+    path('photography/',gallery.views.photo, name='photo'),
+    path('sculptures/',gallery.views.sculp, name='sculp'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
