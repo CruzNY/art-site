@@ -1,0 +1,101 @@
+<!doctype html>
+<!-- Created by Alexis Cruz -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <title>Jasmine Pinturas</title>
+  </head>
+  <body>
+    <section class="hero is-dark has-text-centered">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">Jasmine Pinturas</h1>
+        </div>
+      </div>
+    </section>
+    <nav class="navbar is-dark has-shadow">
+      <div class="container">
+	  <div id="navbarBurger" class="navbar-burger burger" data-target="navMenu">
+	    <span></span>
+	    <span></span>
+	    <span></span>
+	  </div><!-- End of navbar-burger -->
+	  <div id="navMenu" class="navbar-menu has-text-centered">
+	    <div class="navbar-start">
+	      <a class="navbar-item is-active" href="">Paintings</a>
+	      <a class="navbar-item" href="">Sketchbooks</a>
+	      <a class="navbar-item" href="">Photography</a>
+	      <a class="navbar-item" href="">About Me</a>
+	      <a class="navbar-item" href="">Contact</a>
+	    </div>
+	    <div class="navbar-end">
+	      <a class="navbar-item" href="http://Github.com/CruzNY">Facebook</a>
+	      <a class="navbar-item" href="https://www.linkedin.com/in/alexis-cruz-nycct/">Tumblr</a>
+	    </div><!-- End of navbar-end -->
+	</div><!-- End of navbar-menu -->
+      </div><!-- End of container -->
+    </nav><!-- End of nav -->
+    <section class="section">
+      <div class="container">
+      <table class="table is-centered table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+	<tr>
+	  {% for artwork in artworks.all %}
+
+	  <td>
+	    <p>Something k</p>
+            <figure class="image is-128x128">
+	      <a href=""><img alt="" src="{{ artwork.image.url }}"/></a>
+	    </figure>
+	    <br/>
+	    <br/>
+            <p>{{ artwork.desc }}</p>
+	  </td>
+	  {% if forloop.counter|divisibleby:"4"%}
+	</tr>
+	<tr>
+	  {% endif %}
+	  {% endfor %}
+	</tr>
+      </table>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p><strong>Jasmine Pinturas</strong> website created by Alexis Cruz</p>
+	  <p>Artistic Content Created by <strong>Jasmine Espinal</strong></p>
+	  <p>Powered by <a href="Http://Bulma.io">Bulma</a> and <a href="Http://Djangoproject.com">Django</a>
+	  </p>
+        </div><!-- End of content -->
+      </div><!-- End of container -->
+    </footer><!-- End of footer -->
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function () {
+
+      // Get all "navbar-burger" elements
+      var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+      // Check if there are any navbar burgers
+      if ($navbarBurgers.length > 0) {
+
+      // Add a click event on each of them
+      $navbarBurgers.forEach(function ($el) {
+      $el.addEventListener('click', function () {
+
+      // Get the target from the "data-target" attribute
+      var target = $el.dataset.target;
+      var $target = document.getElementById(target);
+
+      // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+      $el.classList.toggle('is-active');
+      $target.classList.toggle('is-active');
+
+      });
+      });
+      }
+
+      });
+    </script>
+  </body>
+</html>
