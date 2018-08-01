@@ -23,4 +23,5 @@ urlpatterns = [
     path('',gallery.views.home, name='home'),
     path('photography/',gallery.views.photo, name='photo'),
     path('sculptures/',gallery.views.sculp, name='sculp'),
+    path('aboutMe/',gallery.views.aboutMe, name='aboutMe'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,6 +1,7 @@
 <!doctype html>
 <!-- Created by Alexis Cruz -->
 <html lang="en">
+  {% load staticfiles %}
   <head>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
@@ -26,40 +27,37 @@
 	  <div class="navbar-start">
 	    <a class="navbar-item" href="/"><i class="fas fa-paint-brush"></i>&nbsp;Paintings</a>
 	    <a class="navbar-item" href="{% url 'photo' %}"><i class="fas fa-camera-retro"></i>&nbsp; Photography</a>
-	    <a class="navbar-item is-active" href="{% url 'sculp' %}"><i class="fas fa-cubes"></i>&nbsp; Sculptures</a>
-	    <a class="navbar-item" href="{% url 'aboutMe' %}"><i class="far fa-user"></i>&nbsp; About Me</a>
+	    <a class="navbar-item" href="{% url 'sculp' %}"><i class="fas fa-cubes"></i>&nbsp; Sculptures</a>
+	    <a class="navbar-item is-active" href="{% url 'aboutMe' %}"><i class="far fa-user"></i>&nbsp; About Me</a>
 	  </div>
 	  <div class="navbar-end">
 	    <a class="navbar-item" href=""><span class="is-hidden-desktop">linkedIn </span><abbr title="LinkedIn"><i class="fab fa-linkedin-in"></i></abbr></a>
 	    <a class="navbar-item" href="http://Github.com/CruzNY"><span class="is-hidden-desktop">Facebook </span><abbr title="Facebook"><i class="fab fa-facebook-square"></i></abbr></a>
 	    <a class="navbar-item" href="https://www.linkedin.com/in/alexis-cruz-nycct/"><span class="is-hidden-desktop">tumblr </span><abbr title="tumblr"><i class="fab fa-tumblr"></i></abbr></a>
-	  </Div><!-- End of navbar-end -->
+	  </div><!-- End of navbar-end -->
 	</div><!-- End of navbar-menu -->
       </div><!-- End of container -->
     </nav><!-- End of nav -->
     <section class="section">
       <div class="container">
-	<table class="table is-centered table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-	  <tr>
-	    {% for artwork in artworks.all %}
-	    <td>
-	      <p>{{ artwork.title }}</p>
-              <figure class="image is-128x128">
-		<a href=""><img alt="" src="{{ artwork.image.url }}"/></a>
-	      </figure>
-	      <br/>
-	      <br/>
-              <p>{{ artwork.desc }}</p>
-	    </td>
-	    {% if forloop.counter|divisibleby:"4"%}
-	  </tr>
-	  <tr>
-	    {% endif %}
-	    {% endfor %}
-	  </tr>
-	</table>
+	<div class="field has-text-centered">
+	  <img style="border-radius:50%" alt="Picture of Alexis Cruz, Creator of CruzPort" src="{% static 'jas.jpg' %}"/>
+	  <br/>
+	  <br/>
+	  <h2 class="subtitle">Jasmine Espinal</h2>
+	  <a class="button is-dark" href="{% static 'resume.pdf' %}">Resum&eacute; &nbsp;<i class="far fa-file-pdf"></i></a>
+	  <a class="button is-danger" href="mailto:mr.alexiscruz@gmail.com">Email&nbsp;<i class="fas fa-envelope"></i></a>
+	</div><!-- End of field -->
+      </div><!-- End of container -->
+    </section><!-- End of section -->
+    <section class="section has-text-centered">
+      <div class="content">
+	<h1 class="title">About Me</h1>
+	<p class="has-text-centered">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+	  The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
       </div>
-    </Section>
+    </section>
     <footer class="footer">
       <div class="container">
         <div class="content has-text-centered">

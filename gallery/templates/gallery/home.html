@@ -27,12 +27,12 @@
 	    <a class="navbar-item is-active" href="/"><i class="fas fa-paint-brush"></i>&nbsp;Paintings</a>
 	    <a class="navbar-item" href="{% url 'photo' %}"><i class="fas fa-camera-retro"></i>&nbsp; Photography</a>
 	    <a class="navbar-item" href="{% url 'sculp' %}"><i class="fas fa-cubes"></i>&nbsp; Sculptures</a>
-	    <a class="navbar-item" href=""><i class="far fa-user"></i>&nbsp; About Me</a>
+	    <a class="navbar-item" href="{% url 'aboutMe' %}"><i class="far fa-user"></i>&nbsp; About Me</a>
 	  </div>
 	  <div class="navbar-end">
-	    <a class="navbar-item" href=""><abbr title="LinkedIn"><i class="fab fa-linkedin-in"></i></abbr></a>
-	    <a class="navbar-item" href="http://Github.com/CruzNY"><abbr title="Facebook"><i class="fab fa-facebook-square"></i></abbr></a>
-	    <a class="navbar-item" href="https://www.linkedin.com/in/alexis-cruz-nycct/"><abbr title="tumblr"><i class="fab fa-tumblr"></i></abbr></a>
+	   <a class="navbar-item" href=""><span class="is-hidden-desktop">linkedIn </span><abbr title="LinkedIn"><i class="fab fa-linkedin-in"></i></abbr></a>
+	    <a class="navbar-item" href="http://Github.com/CruzNY"><span class="is-hidden-desktop">Facebook </span><abbr title="Facebook"><i class="fab fa-facebook-square"></i></abbr></a>
+	    <a class="navbar-item" href="https://www.linkedin.com/in/alexis-cruz-nycct/"><span class="is-hidden-desktop">tumblr </span><abbr title="tumblr"><i class="fab fa-tumblr"></i></abbr></a>
 	  </div><!-- End of navbar-end -->
 	</div><!-- End of navbar-menu -->
       </div><!-- End of container -->
@@ -44,12 +44,12 @@
 	    {% for artwork in artworks.all %}
 	    <td>
 	      <p>{{ artwork.title }}</p>
-              <figure class="image is-128x128">
+	      <figure class="image is-128x128">
 		<a href=""><img alt="" src="{{ artwork.image.url }}"/></a>
 	      </figure>
 	      <br/>
 	      <br/>
-              <p>{{ artwork.desc }}</p>
+	      <p>{{ artwork.desc }}</p>
 	    </td>
 	    {% if forloop.counter|divisibleby:"4"%}
 	  </tr>
@@ -89,7 +89,7 @@
 
       // Toggle the class on both the "navbar-burger" and the "navbar-menu"
       $el.classList.toggle('is-active');
-      $target.classList.toggle('is-active');
+     $target.classList.toggle('is-active');
 
       });
       });
